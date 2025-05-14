@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arias Chatbot</title>
+  <style>
+	html, body {
+	  margin: 0;
+	  padding: 0;
+	  height: 100%;
+	  width: 100%;
+	  font-family: sans-serif;
+	}
+	#chatbot-container {
+	  height: 100vh;
+	  width: 100vw;
+	  max-width: 100%;
+	  box-sizing: border-box;
+	}
+  </style>
+</head>
+<body>
+  <div id="chatbot-container">
+	<flowise-fullchatbot></flowise-fullchatbot>
+  </div>
+
+  <script type="module">
+	import Chatbot from "https://cdn.jsdelivr.net/gh/innodyn1/FlowiseChatEmbed@latest/dist/web.js";
+	Chatbot.initFull({
+	  chatflowid: "a120d50f-3624-4eaa-b4cb-52dc3070e2e2",
+	  apiHost: "https://arias-ai-engine.com",
+	});
+  </script>
+</body>
+</html>
