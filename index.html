@@ -27,9 +27,20 @@
 
   <script type="module">
 	import Chatbot from "https://cdn.jsdelivr.net/gh/innodyn1/FlowiseChatEmbed@latest/dist/web.js";
+
+	// Extract only university and course from the query string
+	const urlParams = new URLSearchParams(window.location.search);
+	const university = urlParams.get("university") || "unknown_university";
+	const course = urlParams.get("course") || "unknown_course";
+
+	// Initialize the Flowise chatbot with only fixed session context
 	Chatbot.initFull({
 	  chatflowid: "a120d50f-3624-4eaa-b4cb-52dc3070e2e2",
 	  apiHost: "https://arias-ai-engine.com",
+	  sessionVariables: {
+		university: university,
+		course: course
+	  }
 	});
   </script>
 </body>
