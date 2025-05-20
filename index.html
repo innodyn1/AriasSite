@@ -28,18 +28,22 @@
   <script type="module">
 	import Chatbot from "https://cdn.jsdelivr.net/gh/innodyn1/FlowiseChatEmbed@latest/dist/web.js";
 
-	// Extract only university and course from the query string
-	const urlParams = new URLSearchParams(window.location.search);
+	// Extract university and course from the URL query string
+	const urlParams  = new URLSearchParams(window.location.search);
 	const university = urlParams.get("university") || "unknown_university";
-	const course = urlParams.get("course") || "unknown_course";
+	const course     = urlParams.get("course")     || "unknown_course";
 
-	// Initialize the Flowise chatbot with only fixed session context
+	console.log("Initializing Flowise with:", { university, course });
+
+	// Initialize the Flowise full-page embed, passing vars to override flow settings
 	Chatbot.initFull({
 	  chatflowid: "a120d50f-3624-4eaa-b4cb-52dc3070e2e2",
-	  apiHost: "https://arias-ai-engine.com",
-	  sessionVariables: {
-		university: university,
-		course: course
+	  apiHost:   "https://arias-ai-engine.com",
+	  chatflowConfig: {
+		vars: {
+		  university,
+		  course
+		}
 	  }
 	});
   </script>
